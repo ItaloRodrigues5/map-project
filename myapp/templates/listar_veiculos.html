@@ -1,0 +1,11 @@
+<h1>Veículos disponíveis</h1>
+<ul>
+  {% for veiculo in veiculos %}
+    <li>
+      {{ veiculo.marca }} {{ veiculo.modelo }} ({{ veiculo.ano }}) - R$ {{ veiculo.preco }}
+      <a href="{% url 'registrar_venda' veiculo.id %}">Comprar</a> <!-- Exemplo: cliente id=1 -->
+    </li>
+  {% empty %}
+    <li>Nenhum veículo disponível.</li>
+  {% endfor %}
+</ul>

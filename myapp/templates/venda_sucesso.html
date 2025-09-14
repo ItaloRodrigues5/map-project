@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Venda Registrada</title>
+</head>
+<body>
+    <h1>Venda Registrada com Sucesso!</h1>
+
+    <p>Cliente: {{ cliente.nome }} ({{ cliente.email }}) {{ cliente.data_nascimento}}</p>
+    <p>Veículo: {{ veiculo.marca }} {{ veiculo.modelo }} ({{ veiculo.ano }})</p>
+    <p>Valor da Venda: R$ {{ venda.valor_venda }}</p>
+
+    <a href="{% url 'registrar_venda' %}">Cadastrar outra venda</a> |
+    <a href="{% url 'listar_vendas' %}">Ver todas as vendas</a>
+    <a href="{% url 'listar_veiculos' %}">Ver todas os veiculos</a>
+    <a href="{% url 'listar_clientes' %}">Ver todas os clientes</a>
+</body>
+</html>

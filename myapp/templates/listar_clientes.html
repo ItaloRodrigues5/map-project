@@ -1,0 +1,8 @@
+<h1>Clientes Cadastrados</h1>
+<ul>
+  {% for cliente in clientes %}
+    <li>{{ cliente.id }} - {{ cliente.nome }} - {{ cliente.email }} - {{ cliente.telefone }}</li>
+  {% empty %}
+    <li>Nenhum cliente cadastrado.</li>
+  {% endfor %}
+</ul>

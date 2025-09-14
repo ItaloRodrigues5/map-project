@@ -1,0 +1,10 @@
+<h1>Vendas Registradas</h1>
+<ul>
+  {% for venda in vendas %}
+    <li>
+      {{ venda.id }} - Cliente: {{ venda.cliente.nome }} - Veículo: {{ venda.veiculo.marca }} {{ venda.veiculo.modelo }} - Valor: R$ {{ venda.valor_venda }} - Data: {{ venda.data }}
+    </li>
+  {% empty %}
+    <li>Nenhuma venda registrada.</li>
+  {% endfor %}
+</ul>

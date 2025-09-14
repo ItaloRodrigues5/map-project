@@ -9,6 +9,8 @@ from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 from .router.api import api_urls
 
+from myapp import views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path(
@@ -39,4 +41,12 @@ urlpatterns = [
         SpectacularRedocView.as_view(url_name='schema'),
         name='redoc'
     ),
+
+    #path('vendas/<int:veiculo_id>/<int:cliente_id>/', views.registrar_venda, name='registrar_venda'),
+    path('veiculos/', views.listar_veiculos, name='listar_veiculos'),
+    path('clientes/', views.listar_clientes, name='listar_clientes'),
+    path('vendas/', views.listar_vendas, name='listar_vendas'),
+
+    path('venda/new', views.registrar_venda, name='registrar_venda'),
+
 ]
