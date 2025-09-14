@@ -43,10 +43,18 @@ urlpatterns = [
     ),
 
     #path('vendas/<int:veiculo_id>/<int:cliente_id>/', views.registrar_venda, name='registrar_venda'),
-    path('veiculos/', views.listar_veiculos, name='listar_veiculos'),
-    path('clientes/', views.listar_clientes, name='listar_clientes'),
-    path('vendas/', views.listar_vendas, name='listar_vendas'),
 
-    path('venda/new', views.registrar_venda, name='registrar_venda'),
+    path('', views.index, name='index'),
+
+    path('veiculos/', views.listar_veiculos, name='listar_veiculos'),
+    path('veiculos/<int:veiculo_id>', views.detalhar_veiculo, name='detalhar_veiculo'),
+
+    path('vendas/', views.listar_vendas, name='listar_vendas'),
+    path('venda/new/', views.registrar_venda, name='registrar_venda'),
+    path('venda/new/<int:veiculo_id>', views.registrar_venda, name='registrar_venda'),
+
+
+    path('clientes/', views.listar_clientes, name='listar_clientes'),
+
 
 ]

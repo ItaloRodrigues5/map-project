@@ -11,7 +11,13 @@
     <p>Veículo: {{ veiculo.marca }} {{ veiculo.modelo }} ({{ veiculo.ano }})</p>
     <p>Valor da Venda: R$ {{ venda.valor_venda }}</p>
 
-    <a href="{% url 'registrar_venda' %}">Cadastrar outra venda</a> |
+    <!--<a href="{% url 'registrar_venda' veiculo.id %}">Cadastrar outra venda</a> |-->
+    {% if veiculo %}
+    <a href="{% url 'registrar_venda' veiculo.id %}">Registrar Venda</a>
+    {% else %}
+    <a href="{% url 'registrar_venda' %}">Registrar Venda</a>
+    {% endif %}
+
     <a href="{% url 'listar_vendas' %}">Ver todas as vendas</a>
     <a href="{% url 'listar_veiculos' %}">Ver todas os veiculos</a>
     <a href="{% url 'listar_clientes' %}">Ver todas os clientes</a>

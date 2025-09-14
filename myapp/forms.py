@@ -8,7 +8,7 @@ class VendaForm(forms.Form):
     email_cliente = forms.CharField(label='E-mail do Cliente')
     birth_date = forms.DateField(label='Data de Nascimento', widget=forms.DateInput(attrs={'type': 'date'}))
         
-    veiculo = forms.ModelChoiceField(queryset=Veiculo.objects.filter(disponivel=True), label='Veículo')
+    veiculo = forms.ModelChoiceField(queryset=Veiculo.objects.filter(disponivel=True), required=True, label='Veículo', empty_label='Selecione um veículo')
 
     marca_veiculo = forms.CharField(label='Marca do Veículo', max_length=50)
     modelo_veiculo = forms.CharField(label='Modelo do Veículo', max_length=50)

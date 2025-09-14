@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalhes do Veículo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 60%;
+            margin: 40px auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            padding: 30px;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        .info {
+            margin: 10px 0;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .btn-voltar {
+            background: #7f8c8d;
+            color: white;
+        }
+        .btn-voltar:hover {
+            background: #636e72;
+        }
+        .btn-venda {
+            background: #27ae60;
+            color: white;
+        }
+        .btn-venda:hover {
+            background: #1e8449;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>{{ veiculo.marca }} {{ veiculo.modelo }}</h1>
+
+        <div class="info"><strong>ID:</strong> {{ veiculo.id }}</div>
+        <div class="info"><strong>Marca:</strong> {{ veiculo.marca }}</div>
+        <div class="info"><strong>Modelo:</strong> {{ veiculo.modelo }}</div>
+        <div class="info"><strong>Ano:</strong> {{ veiculo.ano }}</div>
+        <div class="info"><strong>Preço:</strong> R$ {{ veiculo.preco }}</div>
+        <div class="info"><strong>Disponível:</strong> {{ veiculo.disponivel|yesno:"Sim,Não" }}</div>
+
+        <a href="{% url 'listar_veiculos' %}" class="btn btn-voltar">← Voltar</a>
+        {% if veiculo %}
+        <a href="{% url 'registrar_venda' veiculo.id %}">Registrar Venda</a>
+        {% else %}
+        <a href="{% url 'registrar_venda' %}">Registrar Venda</a>
+        {% endif %}
+    </div>
+</body>
+</html>
