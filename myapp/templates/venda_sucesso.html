@@ -3,9 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Venda Registrada</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-    <h1>Venda Registrada com Sucesso!</h1>
+<body class="bg-light">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow-lg rounded-3 border-0">
+                        <div class="card-header bg-white text-center border-0">
+                            <h2 class="fw-bold text-dark">Venda Registrada com Sucesso!</h2>
+                        </div>
+        <div class="card-body">
+            <form method="post">
+                {% csrf_token %}
+                <h5 class="fw-bold text-primary mb-3">Informações do Cliente</h5>
 
     <p>Cliente: {{ cliente.nome }} ({{ cliente.email }}) {{ cliente.data_nascimento}}</p>
     <p>Veículo: {{ veiculo.marca }} {{ veiculo.modelo }} ({{ veiculo.ano }})</p>
@@ -13,13 +24,12 @@
 
     <!--<a href="{% url 'registrar_venda' veiculo.id %}">Cadastrar outra venda</a> |-->
     {% if veiculo %}
-    <a href="{% url 'registrar_venda' veiculo.id %}">Registrar Venda</a>
+    <a href="{% url 'registrar_venda' veiculo.id %}" class="btn btn-primary">Registrar Venda</a>
     {% else %}
     <a href="{% url 'registrar_venda' %}">Registrar Venda</a>
     {% endif %}
-
-    <a href="{% url 'listar_vendas' %}">Ver todas as vendas</a>
-    <a href="{% url 'listar_veiculos' %}">Ver todas os veiculos</a>
-    <a href="{% url 'listar_clientes' %}">Ver todas os clientes</a>
+    <a href="{% url 'listar_vendas' %}" class="btn btn-primary">Ver todas as vendas</a>
+    <a href="{% url 'listar_veiculos' %}" class="btn btn-primary">Ver todas os veiculos</a>
+    <a href="{% url 'listar_clientes' %}" class="btn btn-primary">Ver todas os clientes</a>
 </body>
 </html>

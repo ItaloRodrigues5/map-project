@@ -49,6 +49,10 @@
         .btn-venda:hover {
             background: #1e8449;
         }
+        .btn-registrar {
+            background: #2980b9;
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -64,7 +68,7 @@
 
         <a href="{% url 'listar_veiculos' %}" class="btn btn-voltar">← Voltar</a>
         {% if veiculo %}
-        <a href="{% url 'registrar_venda' veiculo.id %}">Registrar Venda</a>
+        <a href="{% url 'registrar_venda' veiculo.id %}" class="btn btn-registrar">Registrar Venda</a>
         {% else %}
         <a href="{% url 'registrar_venda' %}">Registrar Venda</a>
         {% endif %}

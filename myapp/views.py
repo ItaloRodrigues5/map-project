@@ -19,13 +19,16 @@ def listar_vendas(request):
     vendas = Venda.objects.all()
     return render(request, 'listar_vendas.html', {'vendas': vendas})
 
-def detalhar_veiculo(request):
-    veiculo = get_object_or_404(Veiculo)
+def detalhar_veiculo(request, veiculo_id):
+    #veiculo = get_object_or_404(Veiculo)
+    veiculo = Veiculo.objects.get(id=veiculo_id)
     return render(request, 'detalhar_veiculo.html', {'veiculo': veiculo})
 
 def registrar_venda(request, veiculo_id=None):
     veiculo = None
     dados_iniciais={}
+    cliente = None
+    venda = None
     
     if veiculo_id:
         veiculo = get_object_or_404(Veiculo, id=veiculo_id)
