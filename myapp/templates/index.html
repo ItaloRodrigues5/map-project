@@ -86,13 +86,8 @@
         <h1>Venda de Veículos</h1>
         <nav>
             <a href="{% url 'listar_veiculos' %}">Veículos</a>
-            {% if veiculo %}
-            <a href="{% url 'registrar_venda' veiculo.id %}">Registrar Venda</a>
-            {% else %}
-            <a href="{% url 'registrar_venda' %}">Registrar Venda</a>
-            {% endif %}
-            <a href="#">Clientes</a>
-            <a href="#">Vendas</a>
+            <a href="{% url 'listar_clientes' %}">Clientes</a>
+            <a href="{% url 'listar_vendas' %}">Vendas</a>
         </nav>
     </header>
 
@@ -105,16 +100,6 @@
                 <h3>Veículos</h3>
                 <p>Lista todos os veículos cadastrados no sistema.</p>
                 <a href="{% url 'listar_veiculos' %}">Ver Veículos</a>
-            </div>
-
-            <div class="card">
-                <h3>Registrar Venda</h3>
-                <p>Registre a venda de um veículo para um cliente.</p>
-                {% if veiculo %}
-                <a href="{% url 'registrar_venda' veiculo.id %}">Registrar Venda</a>
-                {% else %}
-                <a href="{% url 'registrar_venda' %}">Registrar Venda</a>
-                {% endif %}
             </div>
 
             <div class="card">
