@@ -54,7 +54,5 @@ urlpatterns = [
     path('venda/new/<int:veiculo_id>', views.registrar_venda, name='registrar_venda'),
 
 
-    path('clientes/', views.listar_clientes, name='listar_clientes'),
-
-
+    path('clientes/', views.listar_clientes, name='listar_clientes'),    
 ]

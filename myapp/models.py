@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Client(models.Model):
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=255, help_text="Nome Completo")
     email = models.EmailField(unique=True)
     birth_date = models.DateField()
 
