@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venda de Veículos</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.8em;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: bold;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: #1abc9c;
+        }
+
+        main {
+            padding: 40px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card a {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 15px;
+            background-color: #2980b9;
+            color: white;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+
+        .card a:hover {
+            background-color: #1f5f87;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Venda de Veículos</h1>
+        <nav>
+            <a href="{% url 'listar_veiculos' %}">Veículos</a>
+            <a href="{% url 'listar_clientes' %}">Clientes</a>
+            <a href="{% url 'listar_vendas' %}">Vendas</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Bem-vindo ao sistema</h2>
+        <p>Escolha uma opção abaixo para começar:</p>
+
+        <div class="card-grid">
+            <div class="card">
+                <h3>Veículos</h3>
+                <p>Lista todos os veículos cadastrados no sistema.</p>
+                <a href="{% url 'listar_veiculos' %}">Ver Veículos</a>
+            </div>
+
+            <div class="card">
+                <h3>Clientes</h3>
+                <p>Visualize os clientes cadastrados.</p>
+                <a href="{% url 'listar_clientes' %}">Ver Clientes</a>
+            </div>
+
+            <div class="card">
+                <h3>Vendas</h3>
+                <p>Confira todas as vendas registradas.</p>
+                <a href="{% url 'listar_vendas' %}">Ver Vendas</a>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
